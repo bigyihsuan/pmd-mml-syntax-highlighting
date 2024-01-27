@@ -3,27 +3,171 @@
 	"name": "PMD MML",
 	"patterns": [
 		{
-			"include": "#keywords"
+			"include": "#comments"
 		},
 		{
-			"include": "#strings"
+			"include": "#directives"
+		},
+		{
+			"include": "#instrumentReference"
+		},
+		{
+			"include": "#commands"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#channelNames"
 		}
 	],
 	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.pmdmml",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.pmdmml",
-			"begin": "\"",
-			"end": "\"",
+		"comments": {
 			"patterns": [
 				{
-					"name": "constant.character.escape.pmdmml",
-					"match": "\\\\."
+					"name": "comment.line.semicolon.pmdmml",
+					"match": ";.*$"
+				}
+			]
+		},
+		"directives": {
+			"match": "(#\\w+)\\s+(.+)\\b",
+			"captures": {
+				"1": {
+					"name": "keyword.control.pmdmml"
+				},
+				"2": {
+					"name": "string.quoted.other.pmdmml"
+				}
+			}
+		},
+		"instrumentReference": {
+			"name": "keyword.other.instrument-reference.pmdmml",
+			"match": "@\\d{,3}"
+		},
+		"operators": {
+			"patterns": [
+				{
+					"match": "\\,",
+					"name": "keyword.operator.comma.pmdmml"
+				},
+				{
+					"match": "\\.",
+					"name": "keyword.operator.dot.pmdmml"
+				},
+				{
+					"match": "\\<",
+					"name": "keyword.operator.octave-down.pmdmml"
+				},
+				{
+					"match": "\\>",
+					"name": "keyword.operator.octave-up.pmdmml"
+				},
+				{
+					"match": "\\[",
+					"name": "keyword.operator.loop-begin.pmdmml"
+				},
+				{
+					"match": "\\]",
+					"name": "keyword.operator.loop-end.pmdmml"
+				},
+				{
+					"match": "\\:",
+					"name": "keyword.operator.loop-break.pmdmml"
+				},
+				{
+					"match": "\\+",
+					"name": "keyword.operator.sharp.pmdmml"
+				},
+				{
+					"match": "\\-",
+					"name": "keyword.operator.flat.pmdmml"
+				},
+				{
+					"match": "\\=",
+					"name": "keyword.operator.natural.pmdmml"
+				},
+				{
+					"match": "\\&",
+					"name": "keyword.operator.tie.pmdmml"
+				},
+				{
+					"include": "#relativeVolume"
+				}
+			]
+		},
+		"relativeVolume": {
+			"patterns": [
+				{
+					"match": "\\(",
+					"name": "keyword.operator.volume-relative-add.pmdmml"
+				},
+				{
+					"match": "\\)",
+					"name": "keyword.operator.volume-relative-sub.pmdmml"
+				},
+				{
+					"match": "\\^",
+					"name": "keyword.operator.volume-relative-accent.pmdmml"
+				},
+				{
+					"match": "(\\%)(\\d)",
+					"name": "keyword.operator.volume-relative-fine.pmdmml"
+				}
+			]
+		},
+		"channelNames": {
+			"patterns": [
+				{
+					"name": "keyword.name.channel.pmdmml",
+					"match": "^[ABCDEFGHIJK]+"
+				},
+				{
+					"name": "keyword.name.channel-rhythm.pmdmml",
+					"match": "R\\d+"
+				}
+			]
+		},
+		"commands": {
+			"patterns": [
+				{
+					"match": "([abcdefgr])([\\$\\%]?)(\\d*)",
+					"captures": {
+						"1": {
+							"name": "variable.other.note.pmdmml"
+						},
+						"2": {
+							"patterns": [
+								{
+									"match": "\\$",
+									"name": "keyword.operator.note.hex-length.pmdmll"
+								},
+								{
+									"match": "\\%",
+									"name": "keyword.operator.note.counter-length.pmdmll"
+								}
+							]
+						},
+						"3": {
+							"name": "constant.numeric.note.duration.pmdmml"
+						}
+					}
+				},
+				{
+					"name": "constant.numeric.length-default.pmdmml",
+					"match": "l\\d+"
+				},
+				{
+					"name": "constant.numeric.octave-default.pmdmml",
+					"match": "o\\d+"
+				},
+				{
+					"name": "constant.numeric.volume-fine.pmdmml",
+					"match": "V\\d+"
+				},
+				{
+					"name": "constant.numeric.volume-coarse.pmdmml",
+					"match": "v\\d+"
 				}
 			]
 		}
