@@ -36,5 +36,13 @@
       }
     ]
   },
-  "repository": "https://github.com/bigyihsuan/pmd-mml-syntax-highlighting"
+  "configurationDefaults": {
+    "[pmdmml]": {
+      "editor.semanticHighlighting.enabled": true
+    }
+  },
+  "repository": "https://github.com/bigyihsuan/pmd-mml-syntax-highlighting",
+  "dependencies": {
+    "vscode": "^1.1.37"
+  }
 }

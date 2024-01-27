@@ -3,8 +3,8 @@
 	"name": "PMD MML",
 	"patterns": [
 		{ "include": "#directives" },
-		{ "include": "#instrumentReference" },
-		{ "include": "#variable" },
+		{ "include": "#instrument" },
+		{ "include": "#macro" },
 		{ "include": "#commands" },
 		{ "include": "#operators" },
 		{ "include": "#channelNames" },
@@ -22,17 +22,17 @@
 				}
 			}
 		},
-		"instrumentReference": {
-			"name": "keyword.other.instrument-reference.pmdmml",
-			"match": "@\\d{,3}"
+		"instrument": {
+			"name": "entity.name.type.class.instrument.pmdmml",
+			"match": "@\\d{1,3}"
 		},
-		"variable": {
+		"macro": {
 			"patterns": [
 				{
-					"name": "variable.name.definition.pmdmml",
+					"name": "entity.name.function.macro.declaration.pmdmml",
 					"match": "^![A-Za-z0-9]{1,30}" },
 				{
-					"name": "variable.name.reference.pmdmml",
+					"name": "entity.name.function.macro.modification.pmdmml",
 					"match": "![A-Za-z0-9]{1,30}"
 				}
 			]
@@ -123,7 +123,7 @@
 				{
 					"match": "([abcdefgr])([\\$\\%]?)(\\d*)",
 					"captures": {
-						"1": { "name": "variable.other.note.pmdmml" },
+						"1": { "name": "variable.note.pmdmml" },
 						"2": {
 							"patterns": [
 								{
