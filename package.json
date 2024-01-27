@@ -1,8 +1,13 @@
 {
   "name": "pmd-mml-syntax-highlighting",
-  "displayName": "pmd-mml-syntax-highlighting",
+  "displayName": "PMD MML Syntax Highlighting",
   "description": "Syntax highlighting in VS Code for the PMD MML language for the NEC PC-98 series",
   "version": "0.0.1",
+  "license": "GPL-3.0-only",
+  "publisher": "bigyihsuan9999",
+  "author": {
+    "name": "bigyihsuan"
+  },
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -10,16 +15,26 @@
     "Programming Languages"
   ],
   "contributes": {
-    "languages": [{
-      "id": "pmdmml",
-      "aliases": ["PMD MML", "pmdmml"],
-      "extensions": [".mml"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "pmdmml",
-      "scopeName": "source.pmdmml",
-      "path": "./syntaxes/pmdmml.tmLanguage.json"
-    }]
-  }
+    "languages": [
+      {
+        "id": "pmdmml",
+        "aliases": [
+          "PMD MML",
+          "pmdmml"
+        ],
+        "extensions": [
+          ".mml"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "pmdmml",
+        "scopeName": "source.pmdmml",
+        "path": "./syntaxes/pmdmml.tmLanguage.json"
+      }
+    ]
+  },
+  "repository": "https://github.com/bigyihsuan/pmd-mml-syntax-highlighting"
 }
