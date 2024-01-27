@@ -4,39 +4,13 @@
 	"patterns": [
 		{ "include": "#directives" },
 		{ "include": "#instrumentReference" },
+		{ "include": "#variable" },
 		{ "include": "#commands" },
 		{ "include": "#operators" },
 		{ "include": "#channelNames" },
 		{ "include": "#comments" }
 	],
 	"repository": {
-		"comments": {
-			"patterns": [
-				{
-					"name": "comment.line.semicolon.pmdmml",
-					"match": ";.*$"
-				},
-				{
-					"name": "comment.line.whitespace.pmdmml",
-					"match": "^\\s.*$"
-				},
-				{
-					"name": "comment.block.pmdmml",
-					"begin": "(\\`)",
-					"beginCaptures": {
-						"1": {
-							"name": "comment.block.pmdmml"
-						}
-					},
-					"end": "(\\`)",
-					"endCaptures": {
-						"1": {
-							"name": "comment.block.pmdmml"
-						}
-					}
-				}
-			]
-		},
 		"directives": {
 			"match": "(#\\w+)\\s+(.+)\\b",
 			"captures": {
@@ -51,6 +25,17 @@
 		"instrumentReference": {
 			"name": "keyword.other.instrument-reference.pmdmml",
 			"match": "@\\d{,3}"
+		},
+		"variable": {
+			"patterns": [
+				{
+					"name": "variable.name.definition.pmdmml",
+					"match": "^![A-Za-z0-9]{1,30}" },
+				{
+					"name": "variable.name.reference.pmdmml",
+					"match": "![A-Za-z0-9]{1,30}"
+				}
+			]
 		},
 		"operators": {
 			"patterns": [
@@ -169,6 +154,33 @@
 				{
 					"name": "constant.numeric.volume-coarse.pmdmml",
 					"match": "v\\d+"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.semicolon.pmdmml",
+					"match": ";.*$"
+				},
+				{
+					"name": "comment.line.whitespace.pmdmml",
+					"match": "^\\s.*$"
+				},
+				{
+					"name": "comment.block.pmdmml",
+					"begin": "(\\`)",
+					"beginCaptures": {
+						"1": {
+							"name": "comment.block.pmdmml"
+						}
+					},
+					"end": "(\\`)",
+					"endCaptures": {
+						"1": {
+							"name": "comment.block.pmdmml"
+						}
+					}
 				}
 			]
 		}
