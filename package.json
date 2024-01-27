@@ -1,0 +1,25 @@
+{
+  "name": "pmd-mml-syntax-highlighting",
+  "displayName": "pmd-mml-syntax-highlighting",
+  "description": "Syntax highlighting in VS Code for the PMD MML language for the NEC PC-98 series",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "pmdmml",
+      "aliases": ["PMD MML", "pmdmml"],
+      "extensions": [".mml"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "pmdmml",
+      "scopeName": "source.pmdmml",
+      "path": "./syntaxes/pmdmml.tmLanguage.json"
+    }]
+  }
+}
