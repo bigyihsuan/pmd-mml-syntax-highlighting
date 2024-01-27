@@ -2,24 +2,12 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "PMD MML",
 	"patterns": [
-		{
-			"include": "#comments"
-		},
-		{
-			"include": "#directives"
-		},
-		{
-			"include": "#instrumentReference"
-		},
-		{
-			"include": "#commands"
-		},
-		{
-			"include": "#operators"
-		},
-		{
-			"include": "#channelNames"
-		}
+		{ "include": "#directives" },
+		{ "include": "#instrumentReference" },
+		{ "include": "#commands" },
+		{ "include": "#operators" },
+		{ "include": "#channelNames" },
+		{ "include": "#comments" }
 	],
 	"repository": {
 		"comments": {
@@ -27,6 +15,25 @@
 				{
 					"name": "comment.line.semicolon.pmdmml",
 					"match": ";.*$"
+				},
+				{
+					"name": "comment.line.whitespace.pmdmml",
+					"match": "^\\s.*$"
+				},
+				{
+					"name": "comment.block.pmdmml",
+					"begin": "(\\`)",
+					"beginCaptures": {
+						"1": {
+							"name": "comment.block.pmdmml"
+						}
+					},
+					"end": "(\\`)",
+					"endCaptures": {
+						"1": {
+							"name": "comment.block.pmdmml"
+						}
+					}
 				}
 			]
 		},
@@ -91,9 +98,7 @@
 					"match": "\\&",
 					"name": "keyword.operator.tie.pmdmml"
 				},
-				{
-					"include": "#relativeVolume"
-				}
+				{ "include": "#relativeVolume" }
 			]
 		},
 		"relativeVolume": {
@@ -133,9 +138,7 @@
 				{
 					"match": "([abcdefgr])([\\$\\%]?)(\\d*)",
 					"captures": {
-						"1": {
-							"name": "variable.other.note.pmdmml"
-						},
+						"1": { "name": "variable.other.note.pmdmml" },
 						"2": {
 							"patterns": [
 								{
@@ -148,9 +151,7 @@
 								}
 							]
 						},
-						"3": {
-							"name": "constant.numeric.note.duration.pmdmml"
-						}
+						"3": { "name": "constant.numeric.note.duration.pmdmml" }
 					}
 				},
 				{
