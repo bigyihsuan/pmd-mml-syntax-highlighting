@@ -6,13 +6,32 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Extension",
+            "name": "Run Extension",
             "type": "extensionHost",
             "request": "launch",
+            "runtimeExecutable": "${execPath}",
             "args": [
                 "--extensionDevelopmentPath=${workspaceFolder}",
-                "${workspaceFolder}/sample"
-            ]
-        }
+                "${workspaceFolder}/sample",
+            ],
+            "outFiles": [
+                "${workspaceFolder}/out/**/*.js"
+            ],
+            "preLaunchTask": "npm: watch"
+        },
+        // {
+        //     "name": "Run Extension Tests",
+        //     "type": "extensionHost",
+        //     "request": "launch",
+        //     "runtimeExecutable": "${execPath}",
+        //     "args": [
+        //         "--extensionDevelopmentPath=${workspaceFolder}",
+        //         "--extensionTestsPath=${workspaceFolder}/out/test"
+        //     ],
+        //     "outFiles": [
+        //         "${workspaceFolder}/out/test/**/*.js"
+        //     ],
+        //     "preLaunchTask": "npm: watch"
+        // }
     ]
 }

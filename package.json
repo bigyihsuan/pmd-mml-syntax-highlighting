@@ -11,9 +11,16 @@
   "engines": {
     "vscode": "^1.85.0"
   },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "lint": "eslint \"src/**/*.ts\"",
+    "watch": "tsc -watch -p ./"
+  },
   "categories": [
     "Programming Languages"
   ],
+  "activationEvents": [ ],
   "contributes": {
     "languages": [
       {
@@ -41,8 +48,13 @@
       "editor.semanticHighlighting.enabled": true
     }
   },
+  "main": "./out/extension.js",
   "repository": "https://github.com/bigyihsuan/pmd-mml-syntax-highlighting",
-  "dependencies": {
-    "vscode": "^1.1.37"
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.1",
+    "@typescript-eslint/parser": "^6.19.1",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
   }
 }

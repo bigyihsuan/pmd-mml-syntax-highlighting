@@ -2,13 +2,13 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "PMD MML",
 	"patterns": [
+		{ "include": "#comments" },
 		{ "include": "#directives" },
 		{ "include": "#instrument" },
 		{ "include": "#macro" },
 		{ "include": "#commands" },
 		{ "include": "#operators" },
-		{ "include": "#channelNames" },
-		{ "include": "#comments" }
+		{ "include": "#channelNames" }
 	],
 	"repository": {
 		"directives": {
